@@ -1,0 +1,80 @@
+# ThoughtField — docker-compose.yml
+# One command to start everything: docker compose up
+#
+# Services:
+#   redis    — pub/sub + sim state storage
+#   backend  — FastAPI simulation engine (port 8000)
+#   frontend — Next.js UI (port 3000)
+#
+# Usage:
+#   docker compose up --build         # first time
+#   docker compose up                 # subsequent runs
+#   docker compose down               # stop
+#   docker compose down -v            # stop + delete volumes
+
+version: "3.9"
+
+services:
+
+  # --------------------------------------------------------------------------
+  # Redis — shared state, pub/sub for WebSocket streaming
+  # --------------------------------------------------------------------------
+  redis:
+    image: redis:7-alpine
+    container_name: thoughtfield-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+  # --------------------------------------------------------------------------
+  # Backend — FastAPI + simulation engine
+  # --------------------------------------------------------------------------
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: thoughtfield-backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/.env
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - CHROMA_PATH=/app/chroma_db
+    depends_on:
+      redis:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+      - chroma_data:/app/chroma_db
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    restart: unless-stopped
+
+  # --------------------------------------------------------------------------
+  # Frontend — Next.js
+  # --------------------------------------------------------------------------
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: thoughtfield-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - NEXT_PUBLIC_WS_URL=ws://localhost:8000
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  redis_data:
+  chroma_data:
