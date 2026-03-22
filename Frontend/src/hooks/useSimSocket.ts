@@ -1,8 +1,3 @@
-// ThoughtField — frontend/src/hooks/useSimSocket.ts
-// Prompt 9 of 10.
-//
-// WebSocket hook that connects to /ws/sim/{simId} and pipes
-// every message into the Zustand store. Auto-reconnects on disconnect.
 
 import { useEffect, useRef } from "react";
 import useSimStore from "./useSimStore";
