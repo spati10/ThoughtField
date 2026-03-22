@@ -5,13 +5,13 @@ import { useRouter } from "next/navigation";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
-// ─── example seeds ────────────────────────────────────────────────────────────
+// ─── example seeds 
 
 const EXAMPLES = [
   {
     label:    "University protest",
     seed:     `University admin cut arts and humanities funding by 40%. Students staged a walkout on Monday. The Faculty Senate passed a no-confidence vote against Provost Linda Chen, citing lack of consultation. University president Dr. Mark Ellis defended the cuts as financially necessary, pointing to a $12M budget deficit. The student union has called for a full strike by Friday if negotiations don't begin. Alumni donors are reportedly reconsidering a $5M pledge over the controversy.`,
-    question: "What happens in the next 7 days?",
+    question: "What happens in the next 07 days?",
   },
   {
     label:    "City rezoning",
@@ -25,7 +25,7 @@ const EXAMPLES = [
   },
 ];
 
-// ─── Logo ─────────────────────────────────────────────────────────────────────
+// ─── Logo 
 
 function Logo({ size = 24 }: { size?: number }) {
   return (
@@ -43,7 +43,7 @@ function Logo({ size = 24 }: { size?: number }) {
   );
 }
 
-// ─── Page ─────────────────────────────────────────────────────────────────────
+// ─── Page 
 
 export default function SimulatePage() {
   const router = useRouter();
@@ -106,7 +106,7 @@ export default function SimulatePage() {
   const estCost  = (nAgents * simDays * 0.012).toFixed(2);
   const estMins  = Math.round(simDays * 2.4);
 
-  // ── styles ──────────────────────────────────────────────────────────────────
+  // ── styles 
   const inp: React.CSSProperties = {
     width:        "100%",
     background:   "rgba(127,119,221,.06)",
