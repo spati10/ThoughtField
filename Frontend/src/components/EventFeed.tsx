@@ -1,7 +1,4 @@
-// ThoughtField — frontend/src/components/EventFeed.tsx
-// Scrolling feed of agent speeches and actions.
-// Auto-scrolls to bottom on new events.
- 
+
 "use client";
  
 import { useEffect, useRef } from "react";
