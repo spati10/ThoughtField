@@ -1,3 +1,4 @@
+import Image from "next/image";
 export const metadata = {
   title: "ThoughtField",
   description: "Seed any text. Watch 25 living agents simulate a world. Predict what happens next.",
