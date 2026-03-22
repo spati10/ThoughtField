@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-// ─── types ────────────────────────────────────────────────────────────────────
+// ─── types 
 interface AgentDot {
   id: number;
   name: string;
@@ -23,7 +23,7 @@ interface AgentDot {
   speakCooldown: number;
 }
 
-// ─── constants ────────────────────────────────────────────────────────────────
+// ─── constants 
 const AGENT_NAMES = [
   "Isabella", "John",   "Maya",  "Carlos", "Sarah",
   "Ahmed",    "Liu",    "Emma",  "Raj",    "Nina",
@@ -57,7 +57,7 @@ const SPEECH_PHRASES = [
   `"wanna go to the caffe?"`,
 ];
 
-// ─── props ────────────────────────────────────────────────────────────────────
+// ─── props 
 interface HeroBackgroundProps {
   /** Number of agents to render. Default: 25 */
   agentCount?: number;
@@ -67,7 +67,7 @@ interface HeroBackgroundProps {
   bgColor?: string;
 }
 
-// ─── helpers ──────────────────────────────────────────────────────────────────
+// ─── helpers 
 function roundRect(
   ctx: CanvasRenderingContext2D,
   x: number, y: number,
