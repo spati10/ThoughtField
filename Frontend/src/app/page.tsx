@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import HeroBackground from "@/components/HeroBackground";
 
-// ─── constants ────────────────────────────────────────────────────────────────
+// ─── constants 
 
 const TICKER_PHRASES = [
   'Isabella → John: "Have you heard what the admin announced?"',
@@ -37,7 +37,7 @@ const PREDICT_CARDS = [
   { label: "Research",        color: "#AFA9EC", title: "Social science hypothesis testing", desc: "Test what-if scenarios before committing resources. Run the same seed 5 times with different injected events." },
 ];
 
-// ─── Logo SVG ─────────────────────────────────────────────────────────────────
+// ─── Logo SVG 
 
 function Logo({ size = 26 }: { size?: number }) {
   return (
@@ -58,7 +58,7 @@ function Logo({ size = 26 }: { size?: number }) {
   );
 }
 
-// ─── Auth modal ───────────────────────────────────────────────────────────────
+// ─── Auth modal 
 
 function AuthModal({
   open,
