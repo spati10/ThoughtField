@@ -1,9 +1,3 @@
-// ThoughtField — frontend/src/hooks/useSimStore.ts
-// Prompt 9 of 10.
-//
-// Zustand global store for the live simulation state.
-// Single source of truth for everything the frontend displays.
-// Updated by useSimSocket every time a WebSocket message arrives.
 
 import { create } from "zustand";
 
