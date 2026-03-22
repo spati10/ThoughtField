@@ -1,12 +1,3 @@
-"""
-ThoughtField — backend/app/main.py
-------------------------------------
-FastAPI application entry point.
-
-sys.path fix at the top ensures all internal imports resolve correctly
-on both Windows and Mac/Linux regardless of where uvicorn is invoked from.
-"""
-
 import sys
 import os
 import logging
