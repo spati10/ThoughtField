@@ -8,9 +8,9 @@ const http = axios.create({
   timeout: 60_000,   // 60s — persona generation can be slow
 });
 
-// ---------------------------------------------------------------------------
+
 // Types
-// ---------------------------------------------------------------------------
+
 
 export interface SimulateRequest {
   seed:      string;
@@ -84,9 +84,9 @@ export interface AgentPersona {
   seed_memories:      string[];
 }
 
-// ---------------------------------------------------------------------------
+
 // API functions
-// ---------------------------------------------------------------------------
+
 
 export const api = {
 
