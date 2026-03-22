@@ -1,7 +1,4 @@
-// ThoughtField — frontend/src/components/SeedForm.tsx
-// Reusable seed input form extracted from app/page.tsx.
-// Use this if you want the form embedded inside another page
-// or want to share it between routes.
+
 
 "use client";
 
