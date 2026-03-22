@@ -1,6 +1,4 @@
-// SimClock — top bar time display + progress
-// ============================================================================
- 
+
 "use client";
  
 interface ClockProps {
@@ -18,8 +16,8 @@ export function SimClock({
 }: ClockProps) {
   const statusColor =
     status === "running"      ? "#1D9E75" :
-    status === "done"         ? "#378ADD" :
-    status === "error"        ? "#E24B4A" :
+    status === "done!"         ? "#378ADD" :
+    status === "error!"        ? "#E24B4A" :
     status === "initializing" ? "#BA7517" :
     "rgba(255,255,255,0.3)";
  
