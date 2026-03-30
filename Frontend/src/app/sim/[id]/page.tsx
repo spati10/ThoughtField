@@ -15,8 +15,6 @@ import { SimClock }                 from "@/components/SimClock";
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 
-// Types
-
 interface Area {
   x: number; y: number;
   w: number; h: number;
