@@ -26,8 +26,6 @@ interface WorldMap {
 }
 
 
-// Page
-
 export default function SimPage() {
   const params = useParams();
   const simId  = params?.id as string;
@@ -90,7 +88,7 @@ export default function SimPage() {
       overflow:        "hidden",
     }}>
 
-      {/* ---- Top bar: SimClock ---- */}
+      {/*  Top bar: SimClock */}
       <SimClock
         simTime={simTime}
         simDay={simDay}
