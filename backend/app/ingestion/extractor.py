@@ -1,16 +1,3 @@
-"""
-ThoughtField — backend/app/ingestion/extractor.py
---------------------------------------------------
-Prompt 1 of 10.
-
-Converts raw seed text (news article, policy doc, story, anything)
-into a structured world-state dict that the simulation engine uses
-to initialize the environment and generate agent personas.
-
-This is the front door of ThoughtField. Everything the agents know
-about their world starts here.
-"""
-
 import json
 import logging
 from openai import AsyncOpenAI
