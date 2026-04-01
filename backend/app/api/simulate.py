@@ -1,23 +1,3 @@
-"""
-ThoughtField — backend/app/api/simulate.py
--------------------------------------------
-Prompt 7 of 10.
-
-POST /api/simulate  — start a new simulation
-GET  /api/simulate/{sim_id}/status — poll progress
-
-The POST endpoint is the main entry point for the entire product:
-  1. Validate the request body
-  2. Extract world knowledge from the seed text  (extractor.py)
-  3. Generate N agent personas                   (personas.py)
-  4. Build Agent objects                         (simulation.py:build_agents)
-  5. Launch run_simulation() as a background task
-  6. Return {sim_id, status: "running"} immediately
-
-The frontend navigates to /sim/{sim_id} right after receiving this response.
-The simulation streams state to that page via WebSocket (/ws/sim/{sim_id}).
-"""
-
 import logging
 import uuid
 
