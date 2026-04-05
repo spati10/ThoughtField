@@ -368,6 +368,8 @@ ThoughtField implements the architecture described in:
 The memory stream, reflection engine, and planning modules follow the paper's design directly. The seed ingestion pipeline, world state extraction, prediction report generation, and live visualization are original extensions.
 
 ---
+##DEMO Link - https://drive.google.com/file/d/1TRFGasy4izt2xEDP6W_iQnp7vK03trlT/view?usp=drive_link
+---
 
 ## Contributing
 
