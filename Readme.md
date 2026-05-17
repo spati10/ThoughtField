@@ -196,7 +196,7 @@ docker run -d -p 6379:6379 --name thoughtfield-redis redis:alpine
 **Terminal 2 — Backend:**
 ```bash
 cd backend
-source venv/bin/activate
+venv\Scripts\activate 
 uvicorn app.main:app --reload --port 8000
 ```
 
@@ -367,6 +367,8 @@ ThoughtField implements the architecture described in:
 
 The memory stream, reflection engine, and planning modules follow the paper's design directly. The seed ingestion pipeline, world state extraction, prediction report generation, and live visualization are original extensions.
 
+---
+##DEMO Link - https://drive.google.com/file/d/1TRFGasy4izt2xEDP6W_iQnp7vK03trlT/view?usp=drive_link
 ---
 
 ## Contributing

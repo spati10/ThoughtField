@@ -1,29 +1,3 @@
-"""
-ThoughtField — backend/app/agents/cognition.py
------------------------------------------------
-Prompt 4 of 10.
-
-Four LLM-powered cognitive functions that every agent uses each tick.
-This is where memory gets turned into decisions — the bridge between
-what an agent remembers and what they actually do in the world.
-
-Functions:
-  make_daily_plan   — called once per sim-morning. Produces an hourly schedule.
-  decide_action     — called every tick. Returns the agent's next move + speech.
-  do_reflect        — called when memory.should_reflect() fires. Synthesizes
-                      raw observations into higher-level insights that reshape
-                      future behavior.
-  generate_speech   — called when decide_action says the agent wants to talk.
-                      Produces natural dialogue grounded in memory.
-
-Model split (cost-optimized):
-  gpt-4o-mini  → decide_action (called every tick for every agent — must be cheap)
-  gpt-4o       → make_daily_plan, do_reflect, generate_speech (quality matters here)
-
-Override via .env:
-  AGENT_MODEL   = gpt-4o-mini   (action decisions)
-  REFLECT_MODEL = gpt-4o        (planning + reflection + speech)
-"""
 
 import json
 import logging

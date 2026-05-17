@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: thoughtfield-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: thoughtfield-redis
+          property: connectionString
+      - key: CHROMA_PATH
+        value: /tmp/chroma_db
+      - key: AGENT_MODEL
+        value: llama-3.1-8b-instant
+      - key: REFLECT_MODEL
+        value: llama-3.1-70b-versatile
+      - key: REPORT_MODEL
+        value: llama-3.1-70b-versatile
+      - key: PYTHONPATH
+        value: ./app
+      - key: ANONYMIZED_TELEMETRY
+        value: false
+      - key: SIM_TICK_SECONDS
+        value: 2
+
+  - type: redis
+    name: thoughtfield-redis
+    plan: free
+    maxmemoryPolicy: allkeys-lru

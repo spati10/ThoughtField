@@ -1,9 +1,3 @@
-// ThoughtField — frontend/src/components/AgentPanel.tsx
-// Prompt 9 of 10.
-//
-// Left sidebar: scrollable list of all agents with colored dots,
-// name, current action. Click to select and view detail.
- 
 "use client";
  
 import type { AgentState } from "@/hooks/useSimStore";
@@ -77,7 +71,7 @@ export function AgentPanel({ agents, selectedId, onSelect }: Props) {
                     borderRadius: 8,
                     background: agent.color + "22",
                     color: agent.color,
-                    border: `0.5px solid ${agent.color}44`,
+                    border: `0.6px solid ${agent.color}44`,
                     whiteSpace: "nowrap",
                     marginLeft: "auto",
                     flexShrink: 0,

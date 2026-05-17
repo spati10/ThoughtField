@@ -1,20 +1,8 @@
-"""
-ThoughtField — backend/app/main.py
-------------------------------------
-FastAPI application entry point.
-
-sys.path fix at the top ensures all internal imports resolve correctly
-on both Windows and Mac/Linux regardless of where uvicorn is invoked from.
-"""
-
 import sys
 import os
 import logging
 from dotenv import load_dotenv
 load_dotenv(os.path.join(os.path.dirname(__file__), '..', '.env'))
-
-
-
 
 sys.path.insert(0, os.path.dirname(__file__))
 

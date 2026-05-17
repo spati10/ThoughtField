@@ -1,6 +1,3 @@
-// InjectEvent — God mode input at bottom of right sidebar
-// ============================================================================
- 
 "use client";
  
 import { useState } from "react";

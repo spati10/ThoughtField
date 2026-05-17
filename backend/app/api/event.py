@@ -1,27 +1,3 @@
-"""
-ThoughtField — backend/app/api/event.py
-----------------------------------------
-Prompt 7 of 10.
-
-POST /api/event  — inject a live event into a running simulation
-
-This is ThoughtField's "God mode". While the simulation is running,
-the user can type any event into the frontend InjectEvent component
-and push it to all agents simultaneously.
-
-Every agent receives the event text in their injected_event field.
-On their next tick(), they perceive it and react to it in character —
-deviating from their current plan if the event is significant enough.
-
-Examples:
-  "The university president just resigned live on camera"
-  "Police have arrived at the protest"
-  "A video of admin misconduct went viral on social media"
-  "The faculty union just announced a solidarity strike"
-
-The event is consumed by each agent exactly once (cleared after tick).
-"""
-
 import logging
 import sys
 import os

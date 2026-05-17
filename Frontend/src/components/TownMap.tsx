@@ -389,4 +389,8 @@ export default function TownMap({ agents, areas, selectedId, onAgentClick }: Pro
       </div>
     </div>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> bcb9c934b14f51da542b826473bb38bb4826324c

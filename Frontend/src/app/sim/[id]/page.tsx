@@ -1,14 +1,3 @@
-// ThoughtField — frontend/src/app/sim/[id]/page.tsx
-// Prompt 9 of 10.
-//
-// The live simulation page. Three-column layout:
-//   Left  220px — AgentPanel (scrollable agent list)
-//   Center       — TownMap canvas + SimClock top bar
-//   Right 260px  — EventFeed + InjectEvent
-//
-// Connects to WebSocket on mount. Navigates to /report/[id] when done.
-// Dark theme throughout: #0f0f14 background, rgba panels.
-
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
@@ -25,9 +14,7 @@ import { SimClock }                 from "@/components/SimClock";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
-// ---------------------------------------------------------------------------
-// Types
-// ---------------------------------------------------------------------------
+
 interface Area {
   x: number; y: number;
   w: number; h: number;
@@ -38,9 +25,7 @@ interface WorldMap {
   areas: Record<string, Area>;
 }
 
-// ---------------------------------------------------------------------------
-// Page
-// ---------------------------------------------------------------------------
+
 export default function SimPage() {
   const params = useParams();
   const simId  = params?.id as string;
@@ -89,9 +74,9 @@ export default function SimPage() {
   // Selected agent detail
   const selectedAgent = selectedAgentId ? agents[selectedAgentId] : null;
 
-  // ---------------------------------------------------------------------------
+ 
   // Render
-  // ---------------------------------------------------------------------------
+
   return (
     <div style={{
       display:         "flex",
@@ -103,7 +88,7 @@ export default function SimPage() {
       overflow:        "hidden",
     }}>
 
-      {/* ---- Top bar: SimClock ---- */}
+      {/*  Top bar: SimClock */}
       <SimClock
         simTime={simTime}
         simDay={simDay}

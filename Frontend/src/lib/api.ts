@@ -1,8 +1,3 @@
-// ThoughtField — frontend/src/lib/api.ts
-// Prompt 10 of 10.
-//
-// Typed axios API client. All backend calls go through here.
-// Import this in any page or component that needs to talk to the API.
 
 import axios from "axios";
 
@@ -13,9 +8,9 @@ const http = axios.create({
   timeout: 60_000,   // 60s — persona generation can be slow
 });
 
-// ---------------------------------------------------------------------------
+
 // Types
-// ---------------------------------------------------------------------------
+
 
 export interface SimulateRequest {
   seed:      string;
@@ -89,9 +84,9 @@ export interface AgentPersona {
   seed_memories:      string[];
 }
 
-// ---------------------------------------------------------------------------
+
 // API functions
-// ---------------------------------------------------------------------------
+
 
 export const api = {
 

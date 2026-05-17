@@ -1,35 +1,13 @@
-// ThoughtField — frontend/src/app/report/[id]/page.tsx
-// Prompt 10 of 10.
-//
-// The prediction report page. Final destination of every simulation.
-// Polls GET /api/report/{id} until the report is ready, then displays:
-//
-//   - Simulation summary narrative
-//   - Predicted outcome (large, prominent)
-//   - Confidence arc gauge (SVG)
-//   - Sentiment trajectory badge
-//   - Key drivers (cards)
-//   - Alternative scenarios (expandable, with probability bars)
-//   - Faction dynamics
-//   - Key agents
-//   - Uncertainty notes
-//
-// Two CTAs at the bottom: "New Simulation" and "Copy report text"
-
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
 import { useRouter, useParams } from "next/navigation";
 import api, { type ReportData } from "@/lib/api";
 
-// ---------------------------------------------------------------------------
-// Poll interval — checks every 5s while waiting for report generation
-// ---------------------------------------------------------------------------
+
 const POLL_MS = 5000;
 
-// ---------------------------------------------------------------------------
-// Confidence Arc — SVG arc gauge showing 0–100%
-// ---------------------------------------------------------------------------
+
 function ConfidenceArc({ value }: { value: number }) {
   const pct    = Math.max(0, Math.min(1, value));
   const deg    = pct * 240;      // arc sweeps 240°
@@ -104,9 +82,7 @@ function ConfidenceArc({ value }: { value: number }) {
   );
 }
 
-// ---------------------------------------------------------------------------
-// Probability bar — for alternative scenarios
-// ---------------------------------------------------------------------------
+
 function ProbBar({ value }: { value: number }) {
   const pct = Math.round(value * 100);
   return (
@@ -132,9 +108,7 @@ function ProbBar({ value }: { value: number }) {
   );
 }
 
-// ---------------------------------------------------------------------------
-// Trajectory badge
-// ---------------------------------------------------------------------------
+
 function TrajectoryBadge({ value }: { value: string }) {
   const config: Record<string, { color: string; bg: string; label: string }> = {
     escalating:  { color: "#E24B4A", bg: "rgba(226,75,74,0.12)",  label: "Escalating" },
@@ -160,9 +134,7 @@ function TrajectoryBadge({ value }: { value: string }) {
   );
 }
 
-// ---------------------------------------------------------------------------
-// Section wrapper
-// ---------------------------------------------------------------------------
+
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div style={{ marginBottom: 28 }}>
@@ -181,9 +153,9 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   );
 }
 
-// ---------------------------------------------------------------------------
+
 // Main report page
-// ---------------------------------------------------------------------------
+
 export default function ReportPage() {
   const params = useParams();
   const simId  = params?.id as string;
@@ -269,9 +241,9 @@ export default function ReportPage() {
     });
   }
 
-  // ---------------------------------------------------------------------------
+
   // Loading state
-  // ---------------------------------------------------------------------------
+  
   if (loading) {
     return (
       <div style={{
@@ -311,9 +283,9 @@ export default function ReportPage() {
     );
   }
 
-  // ---------------------------------------------------------------------------
+ 
   // Error state
-  // ---------------------------------------------------------------------------
+
   if (error || !report) {
     return (
       <div style={{
@@ -341,9 +313,9 @@ export default function ReportPage() {
     );
   }
 
-  // ---------------------------------------------------------------------------
+ 
   // Full report
-  // ---------------------------------------------------------------------------
+  
   return (
     <div style={{
       minHeight:   "100vh",
