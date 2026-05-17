@@ -196,7 +196,7 @@ docker run -d -p 6379:6379 --name thoughtfield-redis redis:alpine
 **Terminal 2 — Backend:**
 ```bash
 cd backend
-source venv/bin/activate
+venv\Scripts\activate 
 uvicorn app.main:app --reload --port 8000
 ```
 
