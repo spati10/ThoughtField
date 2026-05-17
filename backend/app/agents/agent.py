@@ -1,37 +1,3 @@
-"""
-ThoughtField — backend/app/agents/agent.py
--------------------------------------------
-Prompt 5 of 10.
-
-The Agent class. This is the atom of the entire simulation — every emergent
-behavior, every surprising outcome, every human-feeling moment in ThoughtField
-comes from 25 of these running their tick() method in parallel.
-
-One agent = one persona + one memory stream + one cognitive loop.
-
-Lifecycle:
-  1. Agent(persona, start_pos)    — create from persona dict (personas.py output)
-  2. await agent.initialize()     — seed memories, generate first daily plan
-  3. await agent.tick(world, time) — called every 2 seconds by simulation.py
-  4. agent.to_dict()              — serialized state broadcast over WebSocket
-
-The tick() method is the heart. Every tick:
-  perceive  → what do I see around me right now?
-  sync_plan → am I doing what I planned? should I replan?
-  act       → what do I do this tick? (cognition.decide_action)
-  move      → walk one tile toward my target location
-  speak     → if I want to talk to someone nearby, say something
-  remember  → store what just happened as an observation
-  reflect   → if enough important things have happened, synthesize insights
-
-All of this runs async. simulation.py runs all agents with asyncio.gather()
-so they all tick in parallel — 25 agents, ~25 LLM calls, ~2 real seconds.
-
-Dependencies (all built in Prompts 1–4):
-  agents.memory    → MemoryStream
-  agents.cognition → make_daily_plan, decide_action, do_reflect, generate_speech
-"""
-
 import asyncio
 import logging
 import random
